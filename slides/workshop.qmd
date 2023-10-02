@@ -1,0 +1,124 @@
+---
+title: "A Fantastic Workshop\b R/pharma 2023"
+author: 
+  - Kangjie Zhang
+  - Ari Siggaard Knoph
+format: 
+  revealjs:
+    # chalkboard: true
+    code-link: true
+    background-image: ./figures/pharmaverse-bkgr.png
+    background-size: contain
+    theme: pharmaverse.scss
+    footer: "[Source on github](https://github.com/pharmaverse/rpharma-phriday-workshop)"
+---
+
+```{r}
+#| include: false
+library(glue)
+library(countdown)
+
+# Package hexes
+metacore_img <- "https://raw.githubusercontent.com/atorus-research/metacore/master/man/figures/metacore.PNG"
+metatools_img <- "https://raw.githubusercontent.com/pharmaverse/metatools/master/man/figures/metatools.png"
+xportr_img <- "https://raw.githubusercontent.com/atorus-research/xportr/master/man/figures/logo.png"
+admiral_img <- "https://raw.githubusercontent.com/pharmaverse/admiral/master/man/figures/logo.png"
+
+# Set image sizes
+img_bullet_size <- 80
+img_right_size <- 150
+
+```
+
+
+## R consortium pilot 3
+
+- Some interesting facts
+- Something even more interesting
+
+> - A bullet that is revealed in the end
+
+
+
+## *Exercises!*
+
+Run the following and see what the output is:
+
+```{r}
+#| echo: true
+#| eval: false
+
+print("Hello World")
+
+```
+
+
+```{r}
+countdown(minutes = 10, seconds = 00, 
+          top = NULL, bottom = 0,
+          left = 0, right = 0,
+          margin = "12%",
+          font_size = "3em")
+```  
+
+
+## Dive Deeper
+
+
+>
+>> - `metacore` `r glue("<img src={metacore_img} height='{img_bullet_size'/>")`
+>>
+>> - `metatools` `r glue("<img src={metatools_img} height='{img_bullet_size'/>")`
+>>
+>> - `xportr` `r glue("<img src={xportr_img} height='{img_bullet_size'/>")`
+>>
+>> - `admiral` `r glue("<img src={admiral_img} height='{img_bullet_size'/>")`
+>>
+
+
+## `metacore` `r glue("<img src={metacore_img} align='right' height='{img_right_size'/>")`
+
+- Something A
+- Something B
+- Something C
+
+## `metacore` `r glue("<img src={metacore_img} align='right' height='{img_right_size'/>")`
+
+![](https://github.com/atorus-research/metacore/blob/main/man/figures/labeled_schema.png?raw=true){ width=70% }
+
+
+
+## `metatools` `r glue("<img src={metatools_img} align='right' height='{img_right_size'/>")`
+
+- Something A
+- Something B
+- Something C
+
+
+## `xportr` `r glue("<img src={xportr_img} align='right' height='{img_right_size'/>")`
+
+- Something A
+- Something B
+- Something C
+
+
+## `admiral` `r glue("<img src={admiral_img} align='right' height='{img_right_size'/>")`
+
+- Something A
+- Something B
+- Something C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
