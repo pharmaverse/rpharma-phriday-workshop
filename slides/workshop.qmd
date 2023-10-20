@@ -8,7 +8,7 @@ format:
   revealjs:
     # chalkboard: true
     code-link: true
-    background-image: pharmaverse-bkgr.png
+    background-image: https://raw.githubusercontent.com/pharmaverse/rpharma-phriday-workshop/master/slides/figures/pharmaverse-bkgr.png
     background-size: contain
     theme: pharmaverse.scss
     footer: "[Source on github](https://github.com/pharmaverse/rpharma-phriday-workshop)"
