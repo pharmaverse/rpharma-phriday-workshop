@@ -6,13 +6,13 @@ author:
   - Ross Farrugia
 format: 
   revealjs:
-    embed-resources: true
     # chalkboard: true
     code-link: true
-    background-image: ./figures/pharmaverse-bkgr.png
+    background-image: pharmaverse-bkgr.png
     background-size: contain
     theme: pharmaverse.scss
     footer: "[Source on github](https://github.com/pharmaverse/rpharma-phriday-workshop)"
+    embed-resources: true
 ---
 
 ```{r}
