@@ -1,10 +1,12 @@
 ---
-title: "A Fantastic Workshop\b R/pharma 2023"
+title: "pharmaverse champion\b R/pharma pharmaverse Friday Workshop"
+# date: "Oct 20 2023"
 author: 
-  - Kangjie Zhang
   - Ari Siggaard Knoph
+  - Ross Farrugia
 format: 
   revealjs:
+    embed-resources: true
     # chalkboard: true
     code-link: true
     background-image: ./figures/pharmaverse-bkgr.png
@@ -23,101 +25,212 @@ metacore_img <- "https://raw.githubusercontent.com/atorus-research/metacore/mast
 metatools_img <- "https://raw.githubusercontent.com/pharmaverse/metatools/master/man/figures/metatools.png"
 xportr_img <- "https://raw.githubusercontent.com/atorus-research/xportr/master/man/figures/logo.png"
 admiral_img <- "https://raw.githubusercontent.com/pharmaverse/admiral/master/man/figures/logo.png"
+pharmaverse_img <- "https://raw.githubusercontent.com/pharmaverse/pharmaverse-pkg/master/man/figures/banner.png"
 
 # Set image sizes
 img_bullet_size <- 80
 img_right_size <- 150
+img_center_size <- 300
 
 ```
 
 
-## R consortium pilot 3
+## Intro
 
-- Some interesting facts
-- Something even more interesting
-
-> - A bullet that is revealed in the end
+- 2 pharmaverse concil reps from Novo Nordisk & Roche
+- Apologies we are not Kangjie Zhang from Bayer (as advertised)
 
 
 
-## *Exercises!*
+## Agenda
 
-Run the following and see what the output is:
+>
+>> - pharmaverse overview
+>> - Select packages walkthrough and examples
+>> - `admiral` exercises `r glue("<img src={admiral_img} height='{img_bullet_size}'/>")`
+>> - Closing thoughts
+>>
+  
+
+## pharmaverse overview
+
+<center>
+<br>
+[`r glue("<img src={pharmaverse_img} height='{img_center_size}'/>")`](https://pharmaverse.org){.external target="_blank"}  
+</center>
+
+## pharmaverse overview
+
+Help at your fingertips!
 
 ```{r}
-#| echo: true
 #| eval: false
+#| echo: true
 
-print("Hello World")
+install.packages("pharmaverse")
+```
+
+## pharmaverse overview
+
+Explore!
+
+```{r}
+#| eval: false
+#| echo: true
+
+pharmaverse::explore()
 
 ```
+
+## pharmaverse overview
+
+Join communities!
+
+```{r}
+#| eval: false
+#| echo: true
+
+pharmaverse::join("slack")
+pharmaverse::join("linkedin")
+pharmaverse::join("github")
+
+```
+
+## pharmaverse overview
+
+See pharmaverse examples!
+
+```{r}
+#| eval: false
+#| echo: true
+
+pharmaverse::examples()
+
+```
+
+
+## Packages Walkthrough - intro
+
+>> - `metacore` `r glue("<img src={metacore_img} height='{img_bullet_size}'/>")`
+>> - `metatools` `r glue("<img src={metatools_img} height='{img_bullet_size}'/>")`
+>> - `xportr` `r glue("<img src={xportr_img} height='{img_bullet_size}'/>")`
+>> - `admiral` `r glue("<img src={admiral_img} height='{img_bullet_size}'/>")`
+
+
+## Packages Walkthrough - example usage
+
+- Roche implementation share
+- [R Consortium R Submission WG Pilot 3](https://github.com/RConsortium/submissions-pilot3-adam) ([Example Code](https://github.com/RConsortium/submissions-pilot3-adam/blob/main/submission/programs/adsl.r))
+
+## `admiral` exercises `r glue("<img src={admiral_img} align='right' height='{img_right_size - 20}'/>")`
+
+
+```{r}
+#| eval: false
+#| echo: true
+
+library(admiral)
+library(dplyr, warn.conflicts = FALSE)
+library(pharmaversesdtm)
+library(lubridate)
+library(stringr)
+
+data("dm")
+data("ds")
+data("ex")
+data("ae")
+
+dm <- convert_blanks_to_na(dm)
+ds <- convert_blanks_to_na(ds)
+ex <- convert_blanks_to_na(ex)
+ae <- convert_blanks_to_na(ae)
+```
+
+
+## `admiral` exercises - 1 `r glue("<img src={admiral_img} align='right' height='{img_right_size-20}'/>")` {.smaller}
+
+- Create a new dataset `ds_ext` with all of the `ds`, plus derive a numeric date version of `DS.DSSTDTC` without any imputation as `DSSTDT`.  
+*Hint: `derive_vars_dt()`*
 
 
 ```{r}
 countdown(minutes = 10, seconds = 00, 
           top = NULL, bottom = 0,
-          left = 0, right = 0,
-          margin = "12%",
-          font_size = "3em")
+          left = NULL, right = 0,
+          margin = "10%",
+          font_size = "2.5em")
 ```  
 
+## `admiral` exercises - 2 `r glue("<img src={admiral_img} align='right' height='{img_right_size-20}'/>")` {.smaller}
 
-## Dive Deeper
-
-
->
->> - `metacore` `r glue("<img src={metacore_img} height='{img_bullet_size'/>")`
->>
->> - `metatools` `r glue("<img src={metatools_img} height='{img_bullet_size'/>")`
->>
->> - `xportr` `r glue("<img src={xportr_img} height='{img_bullet_size'/>")`
->>
->> - `admiral` `r glue("<img src={admiral_img} height='{img_bullet_size'/>")`
->>
+- Create a new dataset `adsl_1` with all of `dm`, plus derive an end of study date (`EOSDT`) using the `DSSTDT` from `ds_ext` where `DSCAT == "DISPOSITION EVENT" & DSDECOD != "SCREEN FAILURE"`.  
+*Hint: `derive_vars_merged()`*
 
 
-## `metacore` `r glue("<img src={metacore_img} align='right' height='{img_right_size'/>")`
+```{r}
+countdown(minutes = 10, seconds = 00, 
+          top = NULL, bottom = 0,
+          left = NULL, right = 0,
+          margin = "10%",
+          font_size = "2.5em")
+```  
 
-- Something A
-- Something B
-- Something C
+::: aside
+[Solution](https://pharmaverse.github.io/admiral/cran-release/articles/adsl.html#disposition ){.external target="_blank"} 
+:::
 
-## `metacore` `r glue("<img src={metacore_img} align='right' height='{img_right_size'/>")`
+## `admiral` exercises - 3 `r glue("<img src={admiral_img} align='right' height='{img_right_size-20}'/>")` {.smaller}
 
-![](https://github.com/atorus-research/metacore/blob/main/man/figures/labeled_schema.png?raw=true){ width=70% }
+- Create a new dataset `adsl_2` with all of `adsl_1`, plus derive a safety population flag (`SAFFL`) as `Y` for any patient from `ex` with a record where `EXDOSE > 0`.  
+*Hint: `derive_var_merged_exist_flag()`*
 
+```{r}
+countdown(minutes = 10, seconds = 00, 
+          top = NULL, bottom = 0,
+          left = NULL, right = 0,
+          margin = "10%",
+          font_size = "2.5em")
+```  
 
+::: aside
+[Solution](https://pharmaverse.github.io/admiral/cran-release/articles/adsl.html#popflag){.external target="_blank"} 
+:::
 
-## `metatools` `r glue("<img src={metatools_img} align='right' height='{img_right_size'/>")`
+## `admiral` exercises - 4 `r glue("<img src={admiral_img} align='right' height='{img_right_size-20}'/>")` {.smaller}
 
-- Something A
-- Something B
-- Something C
+- Create a new dataset `adsl_3` with all of `adsl_2`, plus derive a last known alive date (`LSTALVDT`) as the latest date of the following variables from `ae`: `AESTDTC` and `AEENDTC`, imputing missing day and month to the first.  
+*Hint: `derive_var_extreme_dt()`*
 
+```{r}
+countdown(minutes = 10, seconds = 00, 
+          top = NULL, bottom = 0,
+          left = NULL, right = 0,
+          margin = "10%",
+          font_size = "2.5em")
+```  
 
-## `xportr` `r glue("<img src={xportr_img} align='right' height='{img_right_size'/>")`
+::: aside
+[Solution](https://pharmaverse.github.io/admiral/cran-release/articles/adsl.html#lstalvdt){.external target="_blank"} 
+:::
 
-- Something A
-- Something B
-- Something C
+## `admiral` exercises - 5 `r glue("<img src={admiral_img} align='right' height='{img_right_size-20}'/>")` {.smaller}
 
+- If time permits, explore [higher order functions](https://pharmaverse.github.io/admiral/cran-release/articles/higher_order.html) that give greater flexibility to all `admiral` functions
 
-## `admiral` `r glue("<img src={admiral_img} align='right' height='{img_right_size'/>")`
+```{r}
+countdown(minutes = 10, seconds = 00, 
+          top = NULL, bottom = 0,
+          left = NULL, right = 0,
+          margin = "10%",
+          font_size = "2.5em")
+```  
 
-- Something A
-- Something B
-- Something C
+## Closing Thoughts {.smaller}
 
-
-
-
-
-
-
-
-
-
-
+> - Anyone can be become a `pharmaverse champion` as one of the criteria we look for in `pharmaverse` recommended packages is great user guides, as hopefully demonstrated wit the sites shown today
+> - We were only able to show a small number of pharmaverse packages today, but please delve deeper to explore the full breadth
+> - If you'd like to contribute to `pharmaverse`, check out options at [pharmaverse.org](https://pharmaverse.org/contribute/)
+> - Finally, be sure to join our community on [Slack!](https://join.slack.com/t/pharmaverse/shared_invite/zt-yv5atkr4-Np2ytJ6W_QKz_4Olo7Jo9A)
 
 
 
