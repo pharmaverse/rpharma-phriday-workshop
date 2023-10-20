@@ -37,7 +37,7 @@ img_center_size <- 300
 
 ## Intro
 
-- 2 pharmaverse concil reps from Novo Nordisk & Roche
+- 2 pharmaverse council reps from Novo Nordisk & Roche
 - Apologies we are not Kangjie Zhang from Bayer (as advertised)
 
 
